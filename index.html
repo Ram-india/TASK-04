@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In Ex Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-300 to-pink-200 font-sans antialiased leading-normal tracking-normal ">
+    <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-8">
+        <h2 class="text-3xl font-bold text-center uppercase bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-pink-500 mb-8  ">Income expense Calculator</h2>
+        <!-- Add & edit section -->
+        <section class="mb-3 p-3 rounded-lg bg-gradient-to-r from-blue-300 to-blue-200 ">
+            <h2 class="text-lg font-semibold text-gray-600 mb-4  text-center capitalize  ">add Income expense</h2>
+            <form id="inExCalc" class="grid grid-cols-1 sm:grid-cols-3 gap-4 ">
+                
+                <input type="number" name="" class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="amount" placeholder="  &#x20B9; 100000">
+                <input type="text" class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your description.." id="description">
+                <select class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="category">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button  onclick="resetForm()" class=" col-start-1 col-span-1 w-full sm:w-auto px-2 py-2 bg-gradient-to-r from-red-400 to-orange-400 text-white font-semibold uppercase rounded-lg hover:from-orange-400 hover:to-yellow-400 transition"  > Reset </button>
+                <button 
+                 onclick="addItem()"
+                 class="col-start-3  sm:w-auto px-2 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold uppercase rounded-lg hover:from-pink-600 hover:to-purple-600"
+                >
+                  Submit
+                </button>
+            
+            </form>
+        </section>
+        <section class="mb-3">
+            <div class="flex align-center justify-evenly gap-3 capitalize ">
+                <div class=" w-full p-3 text-center rounded-lg bg-gradient-to-t from-green-600 to-green-300 bg-blue-500" >
+                    <p>Total income</p>
+                    &#x20B9; <span id="total-income-display" > </span>
+                </div>
+                <div class=" w-full p-3 text-center rounded-lg  bg-gradient-to-t from-red-600 to-red-300 bg-red-500">
+                    <p>total expense</p>
+                    &#x20B9; <span id="total-expense-display" > </span>
+                </div>
+                <div class="w-full text-center p-3 rounded-lg bg-gradient-to-t from-orange-300 to-yellow-400" >
+                    <p>net balence</p>
+                    &#x20B9; <span id="net-balence-display" >   100000</span>
+                </div>
+            </div>
+
+        </section>
+        <!-- Filter section -->
+    <section class="mb-8 text-center">
+        
+        <div class="flex gap-4 justify-evenly items-center bg-slate-50 p-2 rounded">
+            <h2 class="text-lg font-semibold text-gray-800 ">Filter by cateagory</h2>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="All"
+                 onclick="filterItems('All')"
+                 class="mr-1"
+                 checked>All
+            </label>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="income"
+                 onclick="filterItems('income')"
+                 class="mr-1"
+                 >Income
+            </label>
+            <label>
+                <input type="radio"
+                 name="filter"
+                 value="expense"
+                 onclick="filterItems('expense')"
+                 class="mr-1"
+               >Expense
+            </label>
+        </div>
+
+    </section>
+    <!-- transaction  display section -->
+    <section class="mb-8">
+        <h2 >Your Transactions</h2>
+          <!-- dynamic content here -->
+        <ul id="transaction-list" class="space-y-4">
+       
+         </ul>
+
+    </section>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
